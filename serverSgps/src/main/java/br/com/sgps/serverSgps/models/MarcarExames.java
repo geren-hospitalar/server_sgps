@@ -20,6 +20,7 @@ public class MarcarExames implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "MEXA_ID")
 	private Integer mexaId;
 	
 	private String mexaNome;

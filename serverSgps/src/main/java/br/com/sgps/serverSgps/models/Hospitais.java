@@ -17,7 +17,8 @@ public class Hospitais implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer hosId;
+	@Column(name = "HOSP_ID")
+	private Integer hospId;
 	
 	private String hospNome;
 	private BigInteger hospCnpj;
@@ -29,21 +30,21 @@ public class Hospitais implements Serializable{
 	
 	public Hospitais() {}
 
-	public Hospitais(Integer hosId, String hospNome, BigInteger hospCnpj, String hospEndereco, Integer hospTel) {
+	public Hospitais(Integer hospId, String hospNome, BigInteger hospCnpj, String hospEndereco, Integer hospTel) {
 		super();
-		this.hosId = hosId;
+		this.hospId = hospId;
 		this.hospNome = hospNome;
 		this.hospCnpj = hospCnpj;
 		this.hospEndereco = hospEndereco;
 		this.hospTel = hospTel;
 	}
 
-	public Integer getHosId() {
-		return hosId;
+	public Integer getHospId() {
+		return hospId;
 	}
 
-	public void setHosId(Integer hosId) {
-		this.hosId = hosId;
+	public void setHospId(Integer hospId) {
+		this.hospId = hospId;
 	}
 
 	public String getHospNome() {

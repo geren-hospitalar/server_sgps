@@ -19,6 +19,7 @@ public class Medicos implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "MED_ID")
 	private Integer medId;
 	private String medNome;
 	private String medEspec;

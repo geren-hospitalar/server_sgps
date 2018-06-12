@@ -18,6 +18,7 @@ public class Clientes implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CLI_ID")
 	private Integer cliId;
 	
 	private String cliNome;

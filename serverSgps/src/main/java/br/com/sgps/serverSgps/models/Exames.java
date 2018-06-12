@@ -18,6 +18,7 @@ public class Exames implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "EXA_ID")
 	private Integer exaId;
 	
 	private String exaNome;
