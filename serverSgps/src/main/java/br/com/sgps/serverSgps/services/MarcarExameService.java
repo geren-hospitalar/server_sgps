@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.sgps.serverSgps.models.Clientes;
-import br.com.sgps.serverSgps.repositories.ClienteRepository;
+import br.com.sgps.serverSgps.models.MarcarExames;
+import br.com.sgps.serverSgps.repositories.MarcarExameRepository;
 
 @RestController
-@RequestMapping(path = "/api/clientes")
-public class ClientesService {
+@RequestMapping(path = "/api/exames")
+public class MarcarExameService {
 	
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private MarcarExameRepository marcarExameRepository;
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping(produces = "application/json")
-	public @ResponseBody List<Clientes> findAllClientes(){		
-		List<Clientes> clientes = clienteRepository.findAll();
-		return clientes;
+	public @ResponseBody List<MarcarExames> findAllExames(){		
+		List<MarcarExames> exames = marcarExameRepository.findAll();
+		return exames;
 	}
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping(consumes = "application/json")
-	public ResponseEntity<Void> insertCliente(@RequestBody Clientes cliente){		
-		clienteRepository.save(cliente);		
+	public ResponseEntity<Void> marcarExames(@RequestBody MarcarExames marcarExames){
+		marcarExameRepository.save(marcarExames);
 		return ResponseEntity.ok().build();
 	}
 

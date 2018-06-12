@@ -1,6 +1,7 @@
 package br.com.sgps.serverSgps.services;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,28 +11,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.sgps.serverSgps.models.Clientes;
-import br.com.sgps.serverSgps.repositories.ClienteRepository;
+
+import br.com.sgps.serverSgps.models.MarcarConsultas;
+import br.com.sgps.serverSgps.repositories.MarcarConsultasRepository;
 
 @RestController
-@RequestMapping(path = "/api/clientes")
-public class ClientesService {
+@RequestMapping(path = "/api/consultas")
+public class MarcarConsultasService {
 	
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private MarcarConsultasRepository marcarConsultasRepository;
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping(produces = "application/json")
-	public @ResponseBody List<Clientes> findAllClientes(){		
-		List<Clientes> clientes = clienteRepository.findAll();
-		return clientes;
+	public @ResponseBody List<MarcarConsultas> findAllConsultas(){		
+		List<MarcarConsultas> consultas = marcarConsultasRepository.findAll();
+		return consultas;
 	}
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping(consumes = "application/json")
-	public ResponseEntity<Void> insertCliente(@RequestBody Clientes cliente){		
-		clienteRepository.save(cliente);		
+	public ResponseEntity<Void> marcarConsulta(@RequestBody MarcarConsultas marcarConsultas){
+		marcarConsultasRepository.save(marcarConsultas);
 		return ResponseEntity.ok().build();
 	}
+	
+	
 
 }

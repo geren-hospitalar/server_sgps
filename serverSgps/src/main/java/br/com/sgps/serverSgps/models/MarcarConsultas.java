@@ -3,7 +3,6 @@ package br.com.sgps.serverSgps.models;
 import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "marcar_consultas")
+@Table(name = "marca_consultas")
 public class MarcarConsultas implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
