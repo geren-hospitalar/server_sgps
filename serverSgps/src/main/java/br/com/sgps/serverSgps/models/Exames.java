@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,13 +25,18 @@ public class Exames implements Serializable{
 	@Column(name = "EXA_OBS")
 	private String exaObservacao;
 	
+	@ManyToOne
+	@JoinColumn(name = "FK_CLIENTE", referencedColumnName = "CLI_ID")
+	private Clientes cliente;
+	
 	public Exames() {}
 
-	public Exames(Integer exaId, String exaNome, String exaObservacao) {
+	public Exames(Integer exaId, String exaNome, String exaObservacao, Clientes cliente) {
 		super();
 		this.exaId = exaId;
 		this.exaNome = exaNome;
 		this.exaObservacao = exaObservacao;
+		this.cliente = cliente;
 	}
 
 	public Integer getExaId() {
@@ -55,5 +62,13 @@ public class Exames implements Serializable{
 	public void setExaObservacao(String exaObservacao) {
 		this.exaObservacao = exaObservacao;
 	}
+
+	public Clientes getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Clientes cliente) {
+		this.cliente = cliente;
+	}	
 	
 }

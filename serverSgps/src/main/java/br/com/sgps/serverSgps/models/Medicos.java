@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,11 +30,15 @@ public class Medicos implements Serializable{
 	private Integer medTel;
 	private LocalDateTime medDtNasc;
 	
+	@ManyToOne
+	@JoinColumn(name = "FK_HOSP", referencedColumnName = "HOSP_ID")
+	private Hospitais hospitais;
+	
 	public Medicos() {}
 	
 	
 	public Medicos(Integer medId, String medNome, String medEspec, Integer medCrm, String medEndereco, Integer medTel,
-			LocalDateTime medDtNasc) {
+			LocalDateTime medDtNasc, Hospitais hospitais) {
 		super();
 		this.medId = medId;
 		this.medNome = medNome;
@@ -41,6 +47,7 @@ public class Medicos implements Serializable{
 		this.medEndereco = medEndereco;
 		this.medTel = medTel;
 		this.medDtNasc = medDtNasc;
+		this.hospitais = hospitais;
 	}
 
 	public Integer getMedId() {
@@ -84,6 +91,13 @@ public class Medicos implements Serializable{
 	}
 	public void setMedDtNasc(LocalDateTime medDtNasc) {
 		this.medDtNasc = medDtNasc;
-	}	
+	}
 
+	public Hospitais getHospitais() {
+		return hospitais;
+	}
+	public void setHospitais(Hospitais hospitais) {
+		this.hospitais = hospitais;
+	}	
+	
 }
