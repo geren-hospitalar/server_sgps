@@ -22,8 +22,8 @@ public class SwaggerConfig {
 	    public Docket productApi() {
 	        return new Docket(DocumentationType.SWAGGER_2)
 	                .select()
-	                .apis(RequestHandlerSelectors.basePackage("br.com.sgps.serverSgps"))//
-	                .paths(PathSelectors.ant("/api.*"))
+	                .apis(RequestHandlerSelectors.basePackage("br.com.sgps.serverSgps"))
+	                .paths(PathSelectors.regex("/api.*"))
 	                .build()
 	                .apiInfo(metaInfo());
 	    }
@@ -31,26 +31,16 @@ public class SwaggerConfig {
 	    private ApiInfo metaInfo() {
 	    	
 	    	ApiInfo apiInfo = new ApiInfo(
-	                "Spring Boot Swagger Example API",
-	                "Spring Boot Swagger Example API for Youtube",
+	                "Servidor Api RestFul SGPS",
+	                "Trabalho final TCC",
 	                "1.0",
-	                "Terms of Service",
+	                "",
 	                null,
 	                "Apache License Version 2.0",
 	                "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
 	        );
 
-//	        ApiInfo apiInfo = new ApiInfo(
-//	                "Spring Boot Swagger Example API",
-//	                "Spring Boot Swagger Example API for Youtube",
-//	                "1.0",
-//	                "Terms of Service",
-//	                new Contact("Contact me", "https://www.youtube.com",
-//	                        "techprimerschannel@gmail.com"),
-//	                "Apache License Version 2.0",
-//	                "https://www.apache.org/licesen.html"
-//	        );
-
+	       
 	        return apiInfo;
 	    }
 
