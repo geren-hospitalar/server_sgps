@@ -1,4 +1,4 @@
-package br.com.sgps.serverSgps.services;
+package br.com.sgps.serverSgps.resources;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import br.com.sgps.serverSgps.repositories.HospitaisRepository;
 
 @RestController
 @RequestMapping(path = "/api/hospitais")
-public class HospitaisService {
+public class HospitaisResource {
 	
 	@Autowired
 	private HospitaisRepository hospitaisRepository;

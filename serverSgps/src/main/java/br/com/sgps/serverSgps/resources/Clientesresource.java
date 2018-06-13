@@ -1,4 +1,4 @@
-package br.com.sgps.serverSgps.services;
+package br.com.sgps.serverSgps.resources;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import br.com.sgps.serverSgps.repositories.ClienteRepository;
 
 @RestController
 @RequestMapping(path = "/api/clientes")
-public class ClientesService {
+public class Clientesresource {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;

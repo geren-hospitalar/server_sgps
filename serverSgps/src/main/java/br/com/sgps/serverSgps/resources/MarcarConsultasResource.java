@@ -1,6 +1,7 @@
-package br.com.sgps.serverSgps.services;
+package br.com.sgps.serverSgps.resources;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,28 +11,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.sgps.serverSgps.models.MarcarExames;
-import br.com.sgps.serverSgps.repositories.MarcarExameRepository;
+
+import br.com.sgps.serverSgps.models.MarcarConsultas;
+import br.com.sgps.serverSgps.repositories.MarcarConsultasRepository;
 
 @RestController
-@RequestMapping(path = "/api/exames")
-public class MarcarExameService {
+@RequestMapping(path = "/api/consultas")
+public class MarcarConsultasResource {
 	
 	@Autowired
-	private MarcarExameRepository marcarExameRepository;
+	private MarcarConsultasRepository marcarConsultasRepository;
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping(produces = "application/json")
-	public @ResponseBody List<MarcarExames> findAllExames(){		
-		List<MarcarExames> exames = marcarExameRepository.findAll();
-		return exames;
+	public @ResponseBody List<MarcarConsultas> findAllConsultas(){		
+		List<MarcarConsultas> consultas = marcarConsultasRepository.findAll();
+		return consultas;
 	}
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping(consumes = "application/json")
-	public ResponseEntity<Void> marcarExames(@RequestBody MarcarExames marcarExames){
-		marcarExameRepository.save(marcarExames);
+	public ResponseEntity<Void> marcarConsulta(@RequestBody MarcarConsultas marcarConsultas){
+		marcarConsultasRepository.save(marcarConsultas);
 		return ResponseEntity.ok().build();
 	}
+	
+	
 
 }
