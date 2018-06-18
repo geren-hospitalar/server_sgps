@@ -20,6 +20,15 @@ Para executar o server, execute o comando `cd serverSgps` no `prompt` pra ficar 
 mvnw spring-boot:run
 ```
 
+Para configurar a conexão com o Banco de Dados abrir o arquivo application.properties dentro server/src/main/resources/application.properties
+
+```properties
+spring.datasource.driverClassName=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/sgps
+spring.datasource.username=root
+spring.datasource.password=
+```
+
 Para ver o api-doc Restful:
 
 
