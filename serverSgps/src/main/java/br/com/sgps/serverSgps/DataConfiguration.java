@@ -11,10 +11,10 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
-@Configuration
-@PropertySource( value={
-		"classpath:application.properties"
-})
+//@Configuration
+//@PropertySource( value={
+//		"classpath:application.properties"
+//})
 public class DataConfiguration {
 	
 	@Value("${bd.url}")
@@ -32,29 +32,29 @@ public class DataConfiguration {
 	@Value("${bd.senha}")
 	private String senha;
 	
-	@Bean
-	public DataSource dataSource(){
-		
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://"+url+":"+port+"/"+dataBase);
-		dataSource.setUsername(usuario);
-		dataSource.setPassword(senha);
-		return dataSource;
-	}
-	
-	@Bean
-	public JpaVendorAdapter jpaVendorAdapter(){
-		
-		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-		adapter.setDatabase(Database.MYSQL);
-		adapter.setShowSql(true);
-		adapter.setGenerateDdl(false);
-		adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
-		adapter.setPrepareConnection(true);
-		
-		return adapter;
-	}
+//	@Bean
+//	public DataSource dataSource(){
+//		
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//		dataSource.setUrl("jdbc:mysql://"+url+":"+port+"/"+dataBase);
+//		dataSource.setUsername(usuario);
+//		dataSource.setPassword(senha);
+//		return dataSource;
+//	}
+//	
+//	@Bean
+//	public JpaVendorAdapter jpaVendorAdapter(){
+//		
+//		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+//		adapter.setDatabase(Database.MYSQL);
+//		adapter.setShowSql(true);
+//		adapter.setGenerateDdl(true);
+//		adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+//		adapter.setPrepareConnection(true);
+//		
+//		return adapter;
+//	}
 
 
 }
