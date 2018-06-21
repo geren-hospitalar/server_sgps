@@ -2,7 +2,9 @@ package br.com.sgps.serverSgps.models;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,12 +30,12 @@ public class Clientes implements Serializable{
 	private String cliEndereco;
 	
 	private Integer cliTel;
-	private LocalDateTime cliDtNasc;
+	private String cliDtNasc;
 	
 	public Clientes() {}
 
 	public Clientes(Integer cliId, String cliNome, BigInteger cliCpf, String cliEndereco, Integer cliTel,
-			LocalDateTime cliDtNasc) {
+			String cliDtNasc) {
 		super();
 		this.cliId = cliId;
 		this.cliNome = cliNome;
@@ -83,11 +85,12 @@ public class Clientes implements Serializable{
 		this.cliTel = cliTel;
 	}
 
-	public LocalDateTime getCliDtNasc() {
+	public String getCliDtNasc() {
 		return cliDtNasc;
 	}
 
-	public void setCliDtNasc(LocalDateTime cliDtNasc) {
+	public void setCliDtNasc(String cliDtNasc) {
+		
 		this.cliDtNasc = cliDtNasc;
 	}
 		

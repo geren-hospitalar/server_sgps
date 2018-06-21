@@ -34,9 +34,10 @@ public class Clientesresource {
 	@ApiOperation(value="Inserir novo cliente")
 	@CrossOrigin(origins = "*")
 	@PostMapping(consumes = "application/json")
-	public ResponseEntity<Void> insertCliente(@RequestBody Clientes cliente){		
-		clienteRepository.save(cliente);		
-		return ResponseEntity.ok().build();
+	public @ResponseBody Clientes insertCliente(@RequestBody Clientes cliente){	
+		
+		Clientes clienteNew = clienteRepository.save(cliente);		
+		return clienteNew;
 	}
 
 }

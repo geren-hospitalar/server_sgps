@@ -2,6 +2,7 @@ package br.com.sgps.serverSgps.models;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ public class MarcarConsultas implements Serializable{
 	@Column(name = "MCONS_ID")
 	private Integer mconsId;
 	
-	private LocalDateTime mconsData;
+	private LocalDate mconsData;
 	private Time mconsHora;
 	
 	@ManyToOne
@@ -39,7 +40,7 @@ public class MarcarConsultas implements Serializable{
 	
 	public MarcarConsultas() {}
 
-	public MarcarConsultas(Integer mconsId, LocalDateTime mconsData, Time mconsHora, Medicos medico, Clientes cliente,
+	public MarcarConsultas(Integer mconsId, LocalDate mconsData, Time mconsHora, Medicos medico, Clientes cliente,
 			Hospitais hospitais) {
 		super();
 		this.mconsId = mconsId;
@@ -58,11 +59,11 @@ public class MarcarConsultas implements Serializable{
 		this.mconsId = mconsId;
 	}
 
-	public LocalDateTime getMconsData() {
+	public LocalDate getMconsData() {
 		return mconsData;
 	}
 
-	public void setMconsData(LocalDateTime mconsData) {
+	public void setMconsData(LocalDate mconsData) {
 		this.mconsData = mconsData;
 	}
 

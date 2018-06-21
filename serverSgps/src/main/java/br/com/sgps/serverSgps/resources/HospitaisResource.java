@@ -31,17 +31,17 @@ public class HospitaisResource {
 	}
 	
 	@CrossOrigin(origins = "*")
-	@PostMapping(consumes = "application/json")
-	public ResponseEntity<Void> insertHospitais(@RequestBody Hospitais hospitais){		
-		hospitaisRepository.save(hospitais);		
-		return ResponseEntity.ok().build();
+	@PostMapping(consumes = "application/json", produces = "application/json")
+	public @ResponseBody Hospitais insertHospitais(@RequestBody Hospitais hospitais){		
+		Hospitais hospitaisNew = hospitaisRepository.save(hospitais);		
+		return hospitaisNew;
 	}
 	
 	@CrossOrigin(origins = "*")
 	@PutMapping(consumes = "application/json")
-	public ResponseEntity<Void> updateHospitais(@RequestBody Hospitais hospitais){		
-		hospitaisRepository.save(hospitais);		
-		return ResponseEntity.ok().build();
+	public @ResponseBody Hospitais updateHospitais(@RequestBody Hospitais hospitais){		
+		Hospitais hospitais2 =hospitaisRepository.save(hospitais);		
+		return hospitais2;
 	}
 
 }
